@@ -10,7 +10,7 @@ package
 	 * ...
 	 * @author beyamor
 	 */
-	public class Main extends Engine 
+	public class Main extends Engine
 	{
 		
 		private const	GAME_WIDTH:Number	= 600,
