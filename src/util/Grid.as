@@ -2,6 +2,9 @@ package util
 {	
 	import adobe.utils.ProductManager;
 	import flash.geom.Point;
+	import stuff.Tile;
+	import Main;
+	
 	/**
 	 * ...
 	 * @author beyamor

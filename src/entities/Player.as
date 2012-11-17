@@ -6,6 +6,7 @@ package entities
 	import net.flashpunk.utils.Key;
 	import net.flashpunk.graphics.Image;
 	import util.Grid;
+	import net.flashpunk.FP;
 	/**
 	 * ...
 	 * @author beyamor
@@ -15,9 +16,7 @@ package entities
 		[Embed(source = "../res/images/player.png")]
 		private const SPRITE:Class;
 		
-		private var grid:Grid;
-		
-		public function Player(grid:Grid)
+		public function Player()
 		{
 			Input.define("Left", 	Key.LEFT, 	Key.A);
 			Input.define("Right", 	Key.RIGHT, 	Key.D);
@@ -25,7 +24,6 @@ package entities
 			Input.define("Down", 	Key.DOWN, 	Key.S);
 			
 			graphic = new Image(SPRITE);
-			this.grid = grid;
 		}
 		
 		override public function update():void 
@@ -39,17 +37,15 @@ package entities
 			if (Input.check("Right"))	dx += 1;
 			if (Input.check("Up"))		dy -= 1;
 			if (Input.check("Down"))	dy += 1;
-			dy = (dx == 0)? dy : 0;
 			
-			var gridPos:Point = grid.posOnGrid(new Point(x, y));
-			var nextGridPos:Point = gridPos.add(new Point(dx, dy));
-			
-			if (grid.isOnGrid(nextGridPos)) {
+			if (dx != 0 && dy != 0) {
 				
-				var nextPos:Point = grid.scaledFromGrid(nextGridPos);
-				this.x = nextPos.x;
-				this.y = nextPos.y;
+				dx *= Math.SQRT1_2;
+				dy *= Math.SQRT1_2;
 			}
+			
+			x += dx;
+			y += dy;
 		}
 	}
 
