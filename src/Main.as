@@ -2,26 +2,24 @@ package
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import net.flashpunk.Engine;
+	import net.flashpunk.FP;
+	import worlds.GameWorld;
 	
 	/**
 	 * ...
 	 * @author beyamor
 	 */
-	public class Main extends Sprite 
+	public class Main extends Engine 
 	{
 		
+		private const	GAME_WIDTH:Number	= 600,
+						GAME_HEIGHT:Number	= 480;
+		
 		public function Main():void 
-		{
-			if (stage) init();
-			else addEventListener(Event.ADDED_TO_STAGE, init);
+		{			
+			FP.world = new GameWorld();
+			super(GAME_WIDTH, GAME_HEIGHT);
 		}
-		
-		private function init(e:Event = null):void 
-		{
-			removeEventListener(Event.ADDED_TO_STAGE, init);
-			// entry point
-		}
-		
 	}
-	
 }
