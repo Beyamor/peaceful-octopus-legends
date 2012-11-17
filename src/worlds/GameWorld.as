@@ -2,6 +2,7 @@ package worlds
 {
 	import entities.Player;
 	import net.flashpunk.World;
+	import util.Grid;
 	
 	/**
 	 * ...
@@ -9,10 +10,14 @@ package worlds
 	 */
 	public class GameWorld extends World 
 	{
+		private var grid:Grid;
+		private var tileWidth:Number = 48;
 		
-		public function GameWorld() 
+		public function GameWorld(gameWidth:Number, gameHeight:Number) 
 		{
-			add(new Player);
+			grid = Grid.fromPixels(gameWidth, gameHeight, tileWidth);
+			
+			add(new Player(grid));
 		}
 		
 		override public function update():void

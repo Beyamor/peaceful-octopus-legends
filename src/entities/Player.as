@@ -1,9 +1,11 @@
 package entities 
 {
+	import flash.geom.Point;
 	import net.flashpunk.Entity;
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
 	import net.flashpunk.graphics.Image;
+	import util.Grid;
 	/**
 	 * ...
 	 * @author beyamor
@@ -13,7 +15,9 @@ package entities
 		[Embed(source = "../res/images/player.png")]
 		private const SPRITE:Class;
 		
-		public function Player()
+		private var grid:Grid;
+		
+		public function Player(grid:Grid)
 		{
 			Input.define("Left", 	Key.LEFT, 	Key.A);
 			Input.define("Right", 	Key.RIGHT, 	Key.D);
@@ -21,6 +25,7 @@ package entities
 			Input.define("Down", 	Key.DOWN, 	Key.S);
 			
 			graphic = new Image(SPRITE);
+			this.grid = grid;
 		}
 		
 		override public function update():void 
@@ -36,8 +41,15 @@ package entities
 			if (Input.check("Down"))	dy += 1;
 			dy = (dx == 0)? dy : 0;
 			
-			x += dx;
-			y += dy;
+			var gridPos:Point = grid.posOnGrid(new Point(x, y));
+			var nextGridPos:Point = gridPos.add(new Point(dx, dy));
+			
+			if (grid.isOnGrid(nextGridPos)) {
+				
+				var nextPos:Point = grid.scaledFromGrid(nextGridPos);
+				this.x = nextPos.x;
+				this.y = nextPos.y;
+			}
 		}
 	}
 
