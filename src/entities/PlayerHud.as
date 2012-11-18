@@ -1,6 +1,7 @@
 package entities 
 {
 	import net.flashpunk.Entity;
+	import net.flashpunk.graphics.Graphiclist;
 	import net.flashpunk.graphics.Text;
 	import stuff.PlayerData;
 	import stuff.Colors;
@@ -15,16 +16,28 @@ package entities
 		
 		private const FONT_SIZE:int  = 32;
 		
-		private var text:Text;
+		private var graphics:Graphiclist;
+		private var coinText:Text;
+		private var heartText:Text;
 		
 		public function PlayerHud(data:PlayerData) 
 		{
 			this.data = data;
-			text = new Text("000", 500, 440, FONT_SIZE * 3, FONT_SIZE);
-			text.color = Colors.COIN;
-			text.font = Main.GAME_FONT;
-			text.size = FONT_SIZE;
-			graphic = text;
+			
+			graphics = new Graphiclist();
+			graphic = graphics;
+			
+			coinText = new Text("000", Main.GAME_WIDTH - FONT_SIZE * 3 - 10, Main.GAME_HEIGHT - FONT_SIZE - 10, FONT_SIZE * 3, FONT_SIZE);
+			coinText.color = Colors.COIN;
+			coinText.font = Main.GAME_FONT;
+			coinText.size = FONT_SIZE;
+			graphics.add(coinText);
+			
+			heartText = new Text("000", 10, Main.GAME_HEIGHT - FONT_SIZE - 10, FONT_SIZE * 3, FONT_SIZE);
+			heartText.color = Colors.HEART;
+			heartText.font = Main.GAME_FONT;
+			heartText.size = FONT_SIZE;
+			graphics.add(heartText);
 			
 			layer = Depths.HUD;
 		}
@@ -33,8 +46,11 @@ package entities
 		{
 			super.update();
 			
-			text.text = data.numberOfCoins().toString();
-			while (text.text.length < 3) { text.text = "0" + text.text;} // whatever
+			coinText.text = data.numberOfCoins().toString();
+			while (coinText.text.length < 3) { coinText.text = "0" + coinText.text; } // whatever
+			
+			heartText.text = data.numberOfHearts().toString();
+			while (heartText.text.length < 3) { heartText.text = "0" + heartText.text;} // double whatever
 		}
 	}
 
