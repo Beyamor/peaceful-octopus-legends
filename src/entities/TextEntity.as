@@ -25,7 +25,7 @@ package entities
 			
 			if (size == null) size = REGULAR;
 			
-			var text:Text = new Text(char, 0, 0, 48, 48);
+			var text:Text = new Text(char, 0, 0, 48 * char.length, 48);
 			text.size = pixelSizeOf(size);
 			text.font = Main.GAME_FONT;
 			text.color = color;

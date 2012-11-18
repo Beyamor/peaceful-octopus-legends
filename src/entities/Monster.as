@@ -46,9 +46,17 @@ package entities
 			hitTimer.reset();
 		}
 		
+		public function isDead():Boolean
+		{
+			return !stillAlive;
+		}
+		
 		public function takeDamage(damage:Number):void
 		{
-			world.remove(this);
+			if (world)
+			{
+				world.remove(this);
+			}
 		}
 	}
 
