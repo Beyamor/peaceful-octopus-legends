@@ -11,6 +11,7 @@ package stuff
 		public static const PLAYER:uint		= 0xFFFFFF;
 		public static const HEART:uint		= 0xE81A35;
 		public static const MONSTER:uint	= 0x5AC429;
+		public static const FLOOR:uint		= 0x403B34;
 	}
 
 }

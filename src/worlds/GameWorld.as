@@ -1,8 +1,10 @@
 package worlds 
 {
+	import entities.Floor;
 	import entities.Monster;
 	import entities.Player;
 	import entities.PlayerHud;
+	import flash.geom.Point;
 	import net.flashpunk.World;
 	import stuff.PlayerData;
 	import util.Grid;
@@ -11,6 +13,7 @@ package worlds
 	import entities.Coin;
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
+	import entities.TextEntity;
 	
 	/**
 	 * ...
@@ -35,6 +38,12 @@ package worlds
 			add(new Coin(300, 150));
 			add(new Monster(200, 50));
 			
+			var grid:Grid = Grid.fromPixels(gameWidth, gameHeight, TextEntity.pixelSizeOf(TextEntity.REGULAR));
+			grid.forEach(function(x:int, y:int):void {
+				
+				var realPos:Point = grid.scaledFromGrid(new Point(x, y));
+				add(new Floor(realPos.x, realPos.y));
+			});
 			
 			Input.define("killPlayer", 	Key.ENTER);
 		}

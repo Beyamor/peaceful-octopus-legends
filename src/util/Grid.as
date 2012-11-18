@@ -47,5 +47,15 @@ package util
 			
 			return new Point(point.x * scale, point.y * scale);
 		}
+		
+		public function forEach(f:Function):void
+		{
+			for (var x:int = 0; x < width; ++x) {
+				for (var y:int = 0; y < height; ++y) {
+					
+					f.call(this, x, y);
+				}
+			}
+		}
 	}
 }

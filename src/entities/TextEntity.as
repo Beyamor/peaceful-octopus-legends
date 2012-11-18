@@ -34,7 +34,7 @@ package entities
 			return text;
 		}
 		
-		private static function pixelSizeOf(size:String):int
+		public static function pixelSizeOf(size:String):int
 		{
 			switch(size) {
 				case SMALL:

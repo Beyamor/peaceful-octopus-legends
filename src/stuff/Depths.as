@@ -11,6 +11,7 @@ package stuff
 		public static const HUD:Number		= -20;
 		public static const BULLET:Number	= 5;
 		public static const MONSTER:Number	= 0;
+		public static const FLOOR:Number	= 100;
 	}
 
 }
