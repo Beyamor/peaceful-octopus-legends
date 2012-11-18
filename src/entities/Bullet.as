@@ -3,18 +3,18 @@ package entities
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Text;
-	import stuff.GameText;
+	import entities.TextEntity;
 	/**
 	 * ...
 	 * @author beyamor
 	 */
-	public class Bullet extends Entity
+	public class Bullet extends TextEntity
 	{
 		private var xVel:Number, yVel:Number;
 		
 		public function Bullet(x:Number, y:Number, speed:Number, direction:Number)
 		{
-			graphic = GameText.forChar("V", 0xD6B73A, GameText.SMALL, direction - Math.PI/2);
+			super("V", 0xD6B73A, TextEntity.SMALL, direction - Math.PI/2);
 			
 			this.x = x;
 			this.y = y;

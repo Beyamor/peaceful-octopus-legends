@@ -11,22 +11,24 @@ package entities
 	import util.Grid;
 	import net.flashpunk.FP;
 	import worlds.GameWorld;
-	import stuff.GameText;
+	import entities.TextEntity;
 	
 	/**
 	 * ...
 	 * @author beyamor
 	 */
-	public class Player extends Entity
+	public class Player extends TextEntity
 	{
 		[Embed(source = "../res/images/player.png")]
 		private const SPRITE:Class;
 		
 		private var gun:Gun;
 		
+		private var coins:int = 0;
+		
 		public function Player()
 		{
-			graphic = GameText.forChar("A");
+			super("A");
 			this.gun = new Gun();
 			
 			Input.define("left", 	Key.A);
@@ -65,8 +67,8 @@ package entities
 				dy *= Math.SQRT1_2;
 			}
 			
-			x += dx;
-			y += dy;
+			x += dx * 2;
+			y += dy * 2;
 		}
 		
 		private function shoot():void

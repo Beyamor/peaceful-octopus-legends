@@ -5,6 +5,7 @@ package worlds
 	import util.Grid;
 	import util.Timer;
 	import stuff.Tile;
+	import entities.Coin;
 	
 	/**
 	 * ...
@@ -15,6 +16,7 @@ package worlds
 		public function GameWorld(gameWidth:Number, gameHeight:Number) 
 		{			
 			add(new Player());
+			add(new Coin(100, 100));
 		}
 		
 		override public function update():void

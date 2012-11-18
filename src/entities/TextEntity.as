@@ -1,23 +1,31 @@
-package stuff 
+package entities 
 {
-	import adobe.utils.CustomActions;
+	import net.flashpunk.Entity;
+	import net.flashpunk.masks.Hitbox;
 	import net.flashpunk.graphics.Text;
 	import net.flashpunk.FP;
+	
 	/**
 	 * ...
 	 * @author beyamor
 	 */
-	public class GameText 
+	public class TextEntity extends Entity 
 	{
 		public static const REGULAR:String	= "regular",
 							SMALL:String	= "small";
+		
+		public function TextEntity(char:String, color:uint = 0xFFFFFF, size:String = null, angleInRadians:Number = 0)
+		{
+			graphic = forChar(char, color, size, angleInRadians);
+			mask = new Hitbox(pixelSizeOf(size), pixelSizeOf(size), 0, 0);
+		}
 		
 		public static function forChar(char:String, color:uint = 0xFFFFFF, size:String = null, angleInRadians:Number = 0) : Text {
 			
 			if (size == null) size = REGULAR;
 			
 			var text:Text = new Text(char, 0, 0, 48, 48);
-			text.size = fontSizeForSize(size);
+			text.size = pixelSizeOf(size);
 			text.font = "starForce";
 			text.centerOrigin();
 			text.color = color;
@@ -26,7 +34,7 @@ package stuff
 			return text;
 		}
 		
-		private static function fontSizeForSize(size:String):int
+		private static function pixelSizeOf(size:String):int
 		{
 			switch(size) {
 				case SMALL:
@@ -36,7 +44,6 @@ package stuff
 					return 48;
 			}
 		}
-		
 	}
 
 }
