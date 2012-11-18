@@ -1,6 +1,5 @@
 package entities 
 {
-	import stuff.interfaces.Killable;
 	import flash.geom.Point;
 	import net.flashpunk.Entity;
 	import net.flashpunk.graphics.Text;
@@ -21,7 +20,7 @@ package entities
 	 * ...
 	 * @author beyamor
 	 */
-	public class Player extends TextEntity implements Killable
+	public class Player extends TextEntity
 	{
 		[Embed(source = "../res/images/player.png")]
 		private const SPRITE:Class;
@@ -100,11 +99,6 @@ package entities
 		public function takeDamage(damage:Number):void
 		{
 			data.takeDamage(damage);
-		}
-		
-		public function isDead():Boolean
-		{
-			return data.isDead();
 		}
 	}
 

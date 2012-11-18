@@ -2,14 +2,13 @@ package entities
 {
 	import stuff.Colors;
 	import stuff.Depths;
-	import stuff.interfaces.Killable;
 	import util.Timer;
 	
 	/**
 	 * ...
 	 * @author beyamor
 	 */
-	public class Monster extends TextEntity implements Killable
+	public class Monster extends TextEntity
 	{
 		private var hitTimer:Timer;
 		private var stillAlive:Boolean;
@@ -47,16 +46,9 @@ package entities
 			hitTimer.reset();
 		}
 		
-		public function isDead():Boolean
-		{
-			return !stillAlive;
-		}
-		
 		public function takeDamage(damage:Number):void
 		{
-			stillAlive = false;
-			
-			if (isDead()) world.remove(this);
+			world.remove(this);
 		}
 	}
 
