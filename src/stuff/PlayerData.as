@@ -29,6 +29,11 @@ package stuff
 			return coins;
 		}
 		
+		public function removeCoins(number:int):void
+		{
+			coins -= number;
+		}
+		
 		public function numberOfHearts():int
 		{
 			return Math.ceil(hearts) as int;
