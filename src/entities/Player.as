@@ -8,6 +8,7 @@ package entities
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.World;
 	import stuff.Gun;
+	import stuff.PlayerData;
 	import util.Grid;
 	import net.flashpunk.FP;
 	import worlds.GameWorld;
@@ -23,11 +24,11 @@ package entities
 		private const SPRITE:Class;
 		
 		private var gun:Gun;
+		private var data:PlayerData;
 		
-		private var coins:int = 0;
-		
-		public function Player()
+		public function Player(data:PlayerData)
 		{
+			this.data = data;
 			super("A");
 			this.gun = new Gun();
 			
@@ -91,7 +92,7 @@ package entities
 		public function pickUpCoin(coin:Coin):void {
 			
 			coin.world.remove(coin);
-			++coins;
+			data.addCoin();
 		}
 	}
 
