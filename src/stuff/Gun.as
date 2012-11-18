@@ -12,10 +12,13 @@ package stuff
 	{
 		private var shotTimer:Timer;
 		
+		private var spread:int;
+		
 		public function Gun()
 		{
 			var magicNumber:Number = 0.2;
 			shotTimer = new Timer(magicNumber);
+			spread = 5;
 		}
 		
 		public function shoot(world:World, x:Number, y:Number, direction:Number):void
@@ -23,7 +26,12 @@ package stuff
 			if (!shotTimer.hasFired()) return;
 			shotTimer.reset();
 			
-			world.add(new Bullet(x, y, 3, direction));			
+			var theta:Number = Math.PI / 8;
+			var offsetDirection:Number = (((spread as Number) - 1) / 2) * theta;
+			for (var bullet:int = 0; bullet < spread; ++bullet)
+			{
+				world.add(new Bullet(x, y, 3, direction - offsetDirection + bullet * theta));
+			}
 		}
 		
 		public function update():void
