@@ -5,9 +5,14 @@ package worlds
 	import net.flashpunk.World;
 	import net.flashpunk.FP;
 	import punk.ui.PunkButton;
+	import punk.ui.skin.PunkSkin;
+	import punk.ui.skins.RolpegeBlue;
 	import stuff.PlayerData;
 	import net.flashpunk.utils.Input;
 	import stuff.PurchaseSystem;
+	import ui.YoloSkin;
+	import ui.SuckySuckyButton;
+	
 	/**
 	 * ...
 	 * @author beyamor
@@ -22,6 +27,8 @@ package worlds
 		private const BUTTON_HEIGHT:Number	= 20;
 		private const MARGIN:Number			= 20;
 		
+		private const SKIN:PunkSkin			= new YoloSkin();
+		
 		private var closing:Boolean = false;
 		
 		public static function open(player:PlayerData, previousWorld:GameWorld):void
@@ -31,7 +38,6 @@ package worlds
 		
 		public function InventoryWorld(player:PlayerData, previousWorld:World)
 		{
-			trace("i am a new inventory");
 			this.player = player;
 			this.previousWorld = previousWorld;
 			this.purchaseSystem = new PurchaseSystem(player);
@@ -63,13 +69,15 @@ package worlds
 		
 		private function addPurchaseButton(x:Number, y:Number, text:String, what:String):void
 		{
-			var button:PunkButton = new PunkButton(
+			var button:PunkButton = new SuckySuckyButton(
 				x,
 				y,
 				BUTTON_WIDTH,
 				BUTTON_HEIGHT,
 				text,
-				purchaseSystem.purchaseFunction(what));
+				purchaseSystem.purchaseFunction(what),
+				0,
+				SKIN);
 				
 			button.active = purchaseSystem.canAfford(what);
 			add(button);
@@ -99,7 +107,9 @@ package worlds
 				BUTTON_WIDTH,
 				BUTTON_HEIGHT,
 				"Close",
-				close));
+				close,
+				0,
+				SKIN));
 		}
 		
 		private function close():void

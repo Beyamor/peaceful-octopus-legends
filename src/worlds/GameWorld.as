@@ -47,7 +47,7 @@ package worlds
 			});
 			
 			Input.define("killPlayer", 	Key.ENTER);
-			Input.define("inventory", Key.I);
+			Input.define("inventory", Key.E);
 		}
 		
 		override public function update():void
