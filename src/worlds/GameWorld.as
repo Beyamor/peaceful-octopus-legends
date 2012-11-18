@@ -1,6 +1,7 @@
 package worlds 
 {
 	import entities.Player;
+	import entities.PlayerHud;
 	import net.flashpunk.World;
 	import stuff.PlayerData;
 	import util.Grid;
@@ -17,11 +18,14 @@ package worlds
 	public class GameWorld extends World 
 	{
 		private var player:Player;
+		private var hud:PlayerHud;
 		private var playerData:PlayerData;
 		
 		public function GameWorld(gameWidth:Number, gameHeight:Number) 
 		{	
 			playerData = new PlayerData();
+			hud = new PlayerHud(playerData);
+			add(hud);
 			player = new Player(playerData);
 			add(player);
 			add(new Coin(100, 100));

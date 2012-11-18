@@ -5,6 +5,7 @@ package entities
 	import net.flashpunk.graphics.Text;
 	import entities.TextEntity;
 	import stuff.Depths;
+	import stuff.Colors;
 	/**
 	 * ...
 	 * @author beyamor
@@ -15,7 +16,7 @@ package entities
 		
 		public function Bullet(x:Number, y:Number, speed:Number, direction:Number)
 		{
-			super("V", 0xD6B73A, TextEntity.SMALL, direction - Math.PI/2);
+			super("V", Colors.BULLET, TextEntity.SMALL, direction - Math.PI / 2);
 			
 			this.x = x;
 			this.y = y;

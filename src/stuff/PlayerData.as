@@ -24,6 +24,11 @@ package stuff
 			++coins;
 		}
 		
+		public function numberOfCoins():int
+		{
+			return coins;
+		}
+		
 		public function startNewLife():void
 		{
 			hitpoints = totalHitpoints;

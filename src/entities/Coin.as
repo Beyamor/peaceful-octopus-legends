@@ -3,6 +3,7 @@ package entities
 	import net.flashpunk.Entity;
 	import entities.TextEntity;
 	import stuff.Depths;
+	import stuff.Colors;
 	
 	/**
 	 * ...
@@ -13,7 +14,7 @@ package entities
 		
 		public function Coin(x:Number, y:Number)
 		{
-			super("\"", 0xFFF71C, TextEntity.SMALL);
+			super("\"", Colors.COIN, TextEntity.SMALL);
 			this.x = x;
 			this.y = y;
 			type = "coin";
