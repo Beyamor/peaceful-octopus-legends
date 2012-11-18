@@ -5,6 +5,7 @@ package worlds
 	import net.flashpunk.FP;
 	import punk.ui.PunkButton;
 	import stuff.PlayerData;
+	import net.flashpunk.utils.Input;
 	/**
 	 * ...
 	 * @author beyamor
@@ -28,11 +29,26 @@ package worlds
 			this.player = player;
 			this.previousWorld = previousWorld;
 			
+			add(new PunkButton(
+				MARGIN,
+				MARGIN,
+				BUTTON_WIDTH,
+				BUTTON_HEIGHT,
+				"Spread",
+				increaseSpread));
+			
 			addCloseButton();
 		}
 		
-		private function addCloseButton():void
+		override public function update():void 
 		{
+			super.update();
+			
+			if (Input.pressed("inventory")) close();
+		}
+		
+		private function addCloseButton():void
+		{			
 			add(new PunkButton(
 				Main.GAME_WIDTH - BUTTON_WIDTH - MARGIN,
 				Main.GAME_HEIGHT - BUTTON_HEIGHT - MARGIN,
@@ -45,6 +61,11 @@ package worlds
 		private function close():void
 		{
 			FP.world = previousWorld;
+		}
+		
+		private function increaseSpread():void
+		{
+			player.gun.increaseSpread();
 		}
 	}
 

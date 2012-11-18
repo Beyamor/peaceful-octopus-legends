@@ -18,7 +18,7 @@ package stuff
 		{
 			var magicNumber:Number = 0.2;
 			shotTimer = new Timer(magicNumber);
-			spread = 5;
+			spread = 1;
 		}
 		
 		public function shoot(world:World, x:Number, y:Number, direction:Number):void
@@ -37,6 +37,11 @@ package stuff
 		public function update():void
 		{
 			shotTimer.update();
+		}
+		
+		public function increaseSpread():void
+		{
+			++spread;
 		}
 	}
 
