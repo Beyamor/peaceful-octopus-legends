@@ -53,24 +53,26 @@ package worlds
 		
 		private function addUpgradeUI():void
 		{
-			add(new PunkButton(
-				MARGIN,
-				MARGIN,
-				BUTTON_WIDTH,
-				BUTTON_HEIGHT,
-				"Spread",
-				purchaseSystem.purchaseFunction(PurchaseSystem.GUN_SPREAD)));
+			addPurchaseButton(MARGIN, MARGIN, "Spread", PurchaseSystem.GUN_SPREAD);
 		}
 		
 		private function addNewInventoryUI():void
 		{
-			add(new PunkButton(
-				MARGIN,
-				MARGIN,
+			addPurchaseButton(MARGIN, MARGIN, "Gun", PurchaseSystem.GUN);
+		}
+		
+		private function addPurchaseButton(x:Number, y:Number, text:String, what:String):void
+		{
+			var button:PunkButton = new PunkButton(
+				x,
+				y,
 				BUTTON_WIDTH,
 				BUTTON_HEIGHT,
-				"Gun",
-				purchaseSystem.purchaseFunction(PurchaseSystem.GUN)));
+				text,
+				purchaseSystem.purchaseFunction(what));
+				
+			button.active = purchaseSystem.canAfford(what);
+			add(button);
 		}
 		
 		override public function update():void 
