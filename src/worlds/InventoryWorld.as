@@ -1,8 +1,10 @@
 package worlds 
 {
+	import entities.Player;
 	import net.flashpunk.World;
 	import net.flashpunk.FP;
 	import punk.ui.PunkButton;
+	import stuff.PlayerData;
 	/**
 	 * ...
 	 * @author beyamor
@@ -10,13 +12,34 @@ package worlds
 	public class InventoryWorld extends World
 	{
 		private var previousWorld:World;
+		private var player:PlayerData;
 		
-		public function InventoryWorld(previousWorld:World)
+		private const BUTTON_WIDTH:Number	= 100;
+		private const BUTTON_HEIGHT:Number	= 20;
+		private const MARGIN:Number			= 20;
+		
+		public static function open(player:PlayerData, previousWorld:GameWorld):void
 		{
+			FP.world = new InventoryWorld(player, previousWorld);
+		}
+		
+		public function InventoryWorld(player:PlayerData, previousWorld:World)
+		{
+			this.player = player;
 			this.previousWorld = previousWorld;
 			
-			// what's more magic than magic numbers
-			add(new PunkButton(Main.GAME_WIDTH - 100 - 20, Main.GAME_HEIGHT - 20 - 20, 100, 20, "Close", close));
+			addCloseButton();
+		}
+		
+		private function addCloseButton():void
+		{
+			add(new PunkButton(
+				Main.GAME_WIDTH - BUTTON_WIDTH - MARGIN,
+				Main.GAME_HEIGHT - BUTTON_HEIGHT - MARGIN,
+				BUTTON_WIDTH,
+				BUTTON_HEIGHT,
+				"Close",
+				close));
 		}
 		
 		private function close():void

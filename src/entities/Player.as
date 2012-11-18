@@ -21,10 +21,7 @@ package entities
 	 * @author beyamor
 	 */
 	public class Player extends TextEntity
-	{
-		[Embed(source = "../res/images/player.png")]
-		private const SPRITE:Class;
-		
+	{		
 		private var data:PlayerData;
 		
 		public function Player(data:PlayerData)

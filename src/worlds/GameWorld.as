@@ -69,7 +69,7 @@ package worlds
 			
 			if (Input.pressed("inventory")) {
 				
-				FP.world = new InventoryWorld(this);
+				InventoryWorld.open(playerData, this);
 			}
 		}
 	}
