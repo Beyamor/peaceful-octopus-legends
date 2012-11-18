@@ -11,6 +11,8 @@ package entities
 	import util.Grid;
 	import net.flashpunk.FP;
 	import worlds.GameWorld;
+	import stuff.GameText;
+	
 	/**
 	 * ...
 	 * @author beyamor
@@ -24,7 +26,7 @@ package entities
 		
 		public function Player()
 		{
-			graphic = new Text("A");
+			graphic = GameText.forChar("A");
 			this.gun = new Gun();
 			
 			Input.define("left", 	Key.A);
