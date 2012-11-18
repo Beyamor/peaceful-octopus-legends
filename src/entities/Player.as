@@ -23,14 +23,12 @@ package entities
 		[Embed(source = "../res/images/player.png")]
 		private const SPRITE:Class;
 		
-		private var gun:Gun;
 		private var data:PlayerData;
 		
 		public function Player(data:PlayerData)
 		{
 			this.data = data;
 			super("A");
-			this.gun = new Gun();
 			
 			Input.define("left", 	Key.A);
 			Input.define("right", 	Key.D);
@@ -49,7 +47,7 @@ package entities
 			
 			type = "player";
 			
-			gun.update();
+			data.gun.update();
 			move();
 			shoot();
 		}
@@ -86,7 +84,7 @@ package entities
 			
 			if (dx == 0 && dy == 0) return;
 			
-			gun.shoot(world, x, y, Math.atan2(dy, dx));
+			data.gun.shoot(world, x, y, Math.atan2(dy, dx));
 		}
 		
 		public function pickUpCoin(coin:Coin):void {
