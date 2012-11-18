@@ -6,7 +6,8 @@ package stuff
 	 */
 	public class PurchaseSystem 
 	{
-		public static const GUN_SPREAD:String = "spread";
+		public static const GUN:String			= "gun";
+		public static const GUN_SPREAD:String	= "spread";
 		
 		private var data:PlayerData;
 		
@@ -33,9 +34,19 @@ package stuff
 			
 			switch (what)
 			{
+				case GUN:
+					data.gun = new Gun();
+					break;
+					
 				case GUN_SPREAD:
 					data.gun.increaseSpread();
+					break;
 			}
+		}
+		
+		public function purchaseFunction(what:String):Function
+		{
+			return function():void { purchase(what); };
 		}
 	}
 

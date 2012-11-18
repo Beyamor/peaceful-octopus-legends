@@ -13,7 +13,7 @@ package stuff
 		
 		public function PlayerData() 
 		{
-			this.gun = new Gun();
+			this.gun = new NullGun();
 			coins = 0;
 			totalHearts = 10;
 			startNewLife();
@@ -57,6 +57,11 @@ package stuff
 		public function takeDamage(damage:Number):void
 		{
 			hearts -= damage;
+		}
+		
+		public function hasGun():Boolean
+		{
+			return !(gun is NullGun);
 		}
 	}
 

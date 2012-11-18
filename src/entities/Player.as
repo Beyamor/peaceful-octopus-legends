@@ -49,6 +49,7 @@ package entities
 			
 			data.gun.update();
 			move();
+			
 			shoot();
 		}
 		

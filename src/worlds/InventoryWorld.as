@@ -35,18 +35,42 @@ package worlds
 			this.player = player;
 			this.previousWorld = previousWorld;
 			this.purchaseSystem = new PurchaseSystem(player);
+				
+			if (player.hasGun())
+			{
+				addUpgradeUI();
+			}
 			
+			else
+			{
+				addNewInventoryUI();
+			}
+			
+			addCloseButton();
+			
+			add(new PlayerHud(player));
+		}
+		
+		private function addUpgradeUI():void
+		{
 			add(new PunkButton(
 				MARGIN,
 				MARGIN,
 				BUTTON_WIDTH,
 				BUTTON_HEIGHT,
 				"Spread",
-				function():void { purchaseSystem.purchase(PurchaseSystem.GUN_SPREAD); } ));
-			
-			addCloseButton();
-			
-			add(new PlayerHud(player));
+				purchaseSystem.purchaseFunction(PurchaseSystem.GUN_SPREAD)));
+		}
+		
+		private function addNewInventoryUI():void
+		{
+			add(new PunkButton(
+				MARGIN,
+				MARGIN,
+				BUTTON_WIDTH,
+				BUTTON_HEIGHT,
+				"Gun",
+				purchaseSystem.purchaseFunction(PurchaseSystem.GUN)));
 		}
 		
 		override public function update():void 
@@ -73,7 +97,7 @@ package worlds
 				BUTTON_WIDTH,
 				BUTTON_HEIGHT,
 				"Close",
-				function():void { trace("wut"); close(); } ));
+				close));
 		}
 		
 		private function close():void
