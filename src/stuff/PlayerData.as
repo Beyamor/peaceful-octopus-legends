@@ -1,10 +1,11 @@
 package stuff 
 {
+	import stuff.interfaces.Killable;
 	/**
 	 * ...
 	 * @author beyamor
 	 */
-	public class PlayerData 
+	public class PlayerData implements Killable
 	{
 		private var coins:int;
 		private var totalHearts:int;

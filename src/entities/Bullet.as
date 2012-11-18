@@ -33,6 +33,16 @@ package entities
 			
 			this.x += xVel;
 			this.y += yVel;
+			
+			var monster:Monster = collide("monster", x, y) as Monster;
+			
+			if (monster) hitMonster(monster);
+		}
+		
+		private function hitMonster(monster:Monster):void
+		{
+			monster.takeDamage(1);
+			world.remove(this);
 		}
 	}
 
