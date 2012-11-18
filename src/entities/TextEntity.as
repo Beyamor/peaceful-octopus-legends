@@ -17,7 +17,8 @@ package entities
 		public function TextEntity(char:String, color:uint = 0xFFFFFF, size:String = null, angleInRadians:Number = 0)
 		{
 			graphic = forChar(char, color, size, angleInRadians);
-			mask = new Hitbox(pixelSizeOf(size), pixelSizeOf(size), 0, 0);
+			width = pixelSizeOf(size);
+			height = pixelSizeOf(size);
 		}
 		
 		public static function forChar(char:String, color:uint = 0xFFFFFF, size:String = null, angleInRadians:Number = 0) : Text {

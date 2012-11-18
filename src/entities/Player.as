@@ -46,6 +46,8 @@ package entities
 		{
 			super.update();
 			
+			type = "player";
+			
 			gun.update();
 			move();
 			shoot();
@@ -84,6 +86,12 @@ package entities
 			if (dx == 0 && dy == 0) return;
 			
 			gun.shoot(world, x, y, Math.atan2(dy, dx));
+		}
+		
+		public function pickUpCoin(coin:Coin):void {
+			
+			coin.world.remove(coin);
+			++coins;
 		}
 	}
 

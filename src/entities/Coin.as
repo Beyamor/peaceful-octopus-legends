@@ -15,8 +15,25 @@ package entities
 			super("\"", 0xFFF71C, TextEntity.SMALL);
 			this.x = x;
 			this.y = y;
+			type = "coin";
 		}
 		
+		override public function update():void 
+		{
+			super.update();
+			
+			checkForPickup();
+		}
+		
+		private function checkForPickup():void {
+			
+			var player:Player = collide("player", x, y) as Player;
+			
+			if (player) {
+				
+				player.pickUpCoin(this);
+			}
+		}
 	}
 
 }
