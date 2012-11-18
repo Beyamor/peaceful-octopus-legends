@@ -14,6 +14,7 @@ package worlds
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
 	import entities.TextEntity;
+	import net.flashpunk.FP;
 	
 	/**
 	 * ...
@@ -26,7 +27,7 @@ package worlds
 		private var playerData:PlayerData;
 		
 		public function GameWorld(gameWidth:Number, gameHeight:Number) 
-		{	
+		{				
 			playerData = new PlayerData();
 			hud = new PlayerHud(playerData);
 			add(hud);
@@ -46,6 +47,7 @@ package worlds
 			});
 			
 			Input.define("killPlayer", 	Key.ENTER);
+			Input.define("inventory", Key.I);
 		}
 		
 		override public function update():void
@@ -63,6 +65,11 @@ package worlds
 			if (Input.pressed("killPlayer")) {
 				
 				playerData.kill();
+			}
+			
+			if (Input.pressed("inventory")) {
+				
+				FP.world = new InventoryWorld(this);
 			}
 		}
 	}
