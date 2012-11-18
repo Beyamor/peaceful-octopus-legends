@@ -1,5 +1,6 @@
 package worlds 
 {
+	import entities.ChaseMonster;
 	import entities.Floor;
 	import entities.Monster;
 	import entities.Player;
@@ -37,7 +38,7 @@ package worlds
 			add(new Coin(100, 150));
 			add(new Coin(200, 150));
 			add(new Coin(300, 150));
-			add(new Monster(200, 50));
+			add(new ChaseMonster(200, 50, player));
 			
 			var grid:Grid = Grid.fromPixels(gameWidth, gameHeight, TextEntity.pixelSizeOf(TextEntity.REGULAR));
 			grid.forEach(function(x:int, y:int):void {

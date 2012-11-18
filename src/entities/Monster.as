@@ -13,9 +13,9 @@ package entities
 		private var hitTimer:Timer;
 		private var stillAlive:Boolean;
 		
-		public function Monster(x:Number, y:Number) 
+		public function Monster(x:Number, y:Number, text:String, color:uint) 
 		{
-			super("M", Colors.MONSTER);
+			super(text, color);
 			
 			this.x = x;
 			this.y = y;
