@@ -48,6 +48,11 @@ package stuff
 		{
 			hearts = 0;
 		}
+		
+		public function takeDamage(damage:Number):void
+		{
+			hearts -= damage;
+		}
 	}
 
 }

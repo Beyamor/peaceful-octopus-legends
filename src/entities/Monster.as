@@ -1,0 +1,49 @@
+package entities 
+{
+	import stuff.Colors;
+	import stuff.Depths;
+	import util.Timer;
+	
+	/**
+	 * ...
+	 * @author beyamor
+	 */
+	public class Monster extends TextEntity
+	{
+		private var hitTimer:Timer;
+		
+		public function Monster(x:Number, y:Number) 
+		{
+			super("M", Colors.MONSTER);
+			
+			this.x = x;
+			this.y = y;
+			type = "monster";
+			layer = Depths.MONSTER;
+			
+			hitTimer = new Timer(0.5);
+		}
+		
+		override public function update():void 
+		{
+			super.update();
+			
+			hitTimer.update();
+			
+			if (hitTimer.hasFired())
+			{
+				var player:Player = collide("player", x, y) as Player;
+			
+				if (player) hitPlayer(player);
+			}
+		}
+		
+		private function hitPlayer(player:Player):void
+		{
+			player.takeDamage(1);
+			hitTimer.reset();
+		}
+		
+	}
+
+}

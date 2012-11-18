@@ -1,5 +1,6 @@
 package worlds 
 {
+	import entities.Monster;
 	import entities.Player;
 	import entities.PlayerHud;
 	import net.flashpunk.World;
@@ -28,7 +29,12 @@ package worlds
 			add(hud);
 			player = new Player(playerData);
 			add(player);
-			add(new Coin(100, 100));
+			
+			add(new Coin(100, 150));
+			add(new Coin(200, 150));
+			add(new Coin(300, 150));
+			add(new Monster(200, 50));
+			
 			
 			Input.define("killPlayer", 	Key.ENTER);
 		}

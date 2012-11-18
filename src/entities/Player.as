@@ -95,6 +95,11 @@ package entities
 			coin.world.remove(coin);
 			data.addCoin();
 		}
+		
+		public function takeDamage(damage:Number):void
+		{
+			data.takeDamage(damage);
+		}
 	}
 
 }
