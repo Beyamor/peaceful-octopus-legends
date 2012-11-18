@@ -4,6 +4,7 @@ package entities
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Text;
 	import entities.TextEntity;
+	import stuff.Depths;
 	/**
 	 * ...
 	 * @author beyamor
@@ -21,6 +22,8 @@ package entities
 			
 			xVel = speed * Math.cos(direction);
 			yVel = speed * Math.sin(direction);
+			
+			layer = Depths.BULLET;
 		}
 		
 		public override function update():void

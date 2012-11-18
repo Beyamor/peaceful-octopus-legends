@@ -15,6 +15,7 @@ package
 	{
 		[Embed(source = 'res/fonts/starForce.ttf', embedAsCFF="false", fontFamily = 'starForce')]
 		private static var font:Class;
+		public static const GAME_FONT:String = "starForce";
 		
 		public static const	GAME_WIDTH:Number	= 600;
 		public static const	GAME_HEIGHT:Number	= 480;

@@ -2,6 +2,7 @@ package entities
 {
 	import net.flashpunk.Entity;
 	import entities.TextEntity;
+	import stuff.Depths;
 	
 	/**
 	 * ...
@@ -16,6 +17,7 @@ package entities
 			this.x = x;
 			this.y = y;
 			type = "coin";
+			layer = Depths.COIN;
 		}
 		
 		override public function update():void 

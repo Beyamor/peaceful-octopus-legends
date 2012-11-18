@@ -13,6 +13,7 @@ package entities
 	import net.flashpunk.FP;
 	import worlds.GameWorld;
 	import entities.TextEntity;
+	import stuff.Depths;
 	
 	/**
 	 * ...
@@ -28,6 +29,7 @@ package entities
 		public function Player(data:PlayerData)
 		{
 			this.data = data;
+			layer = Depths.PLAYER;
 			super("A");
 			
 			Input.define("left", 	Key.A);

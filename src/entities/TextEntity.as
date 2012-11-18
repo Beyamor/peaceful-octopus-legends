@@ -27,7 +27,7 @@ package entities
 			
 			var text:Text = new Text(char, 0, 0, 48, 48);
 			text.size = pixelSizeOf(size);
-			text.font = "starForce";
+			text.font = Main.GAME_FONT;
 			text.centerOrigin();
 			text.color = color;
 			text.angle = angleInRadians * FP.DEG;
