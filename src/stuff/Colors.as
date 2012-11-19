@@ -1,5 +1,6 @@
 package stuff 
 {
+	import ui.SuckySuckyButton;
 	/**
 	 * ...
 	 * @author beyamor
@@ -13,6 +14,7 @@ package stuff
 		public static const MONSTER:uint	= 0x5AC429;
 		public static const FLOOR:uint		= 0x403B34;
 		public static const CHASER:uint		= 0x2BA0CF;
+		public static const BLOOD:uint		= 0xC7343E;
 	}
 
 }

@@ -65,6 +65,7 @@ package entities
 		
 		public function takeDamage(damage:Number):void
 		{
+			BloodSpurt.createABunch(world, x, y);
 			stillAlive = false;
 		}
 	}

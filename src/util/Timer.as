@@ -36,6 +36,11 @@ package util
 			elapsed += FP.elapsed;
 		}
 		
+		public function percentElapsed():Number
+		{
+			return Math.min(elapsed / period, 1);
+		}
+		
 	}
 
 }

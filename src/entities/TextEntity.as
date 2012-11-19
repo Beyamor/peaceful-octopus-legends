@@ -11,12 +11,15 @@ package entities
 	 */
 	public class TextEntity extends Entity 
 	{
-		public static const REGULAR:String	= "regular",
-							SMALL:String	= "small";
+		public static const REGULAR:String		= "regular",
+							SMALL:String		= "small",
+							REALLY_SMALL:String	= "reallySmall";
+			protected var text:Text;
 		
 		public function TextEntity(char:String, color:uint = 0xFFFFFF, size:String = null, angleInRadians:Number = 0)
 		{
-			graphic = forChar(char, color, size, angleInRadians);
+			text = forChar(char, color, size, angleInRadians);
+			graphic = text;
 			width = pixelSizeOf(size);
 			height = pixelSizeOf(size);
 		}
@@ -37,6 +40,8 @@ package entities
 		public static function pixelSizeOf(size:String):int
 		{
 			switch(size) {
+				case REALLY_SMALL:
+					return 8;
 				case SMALL:
 					return 16;
 				case REGULAR:
