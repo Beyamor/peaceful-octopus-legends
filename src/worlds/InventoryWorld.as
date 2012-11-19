@@ -67,8 +67,21 @@ package worlds
 		
 		private function addUpgradeUI():void
 		{
-			addPurchaseButton(MARGIN, MARGIN, "Hearts", PurchaseSystem.HEARTS);
-			addPurchaseButton(MARGIN, MARGIN*3, "Spread", PurchaseSystem.GUN_SPREAD);
+			var purchases:Array = [
+				["Hearts",	PurchaseSystem.HEARTS],
+				["Rate",	PurchaseSystem.FIRE_RATE],
+				["Spread",	PurchaseSystem.GUN_SPREAD]
+			];
+			
+			for (var thingToPurchase:int = 0; thingToPurchase < purchases.length; ++thingToPurchase)
+			{
+				addPurchaseButton(
+					MARGIN,
+					MARGIN + MARGIN * thingToPurchase * 2,
+					purchases[thingToPurchase][0],
+					purchases[thingToPurchase][1]
+				);
+			}
 		}
 		
 		private function addNewInventoryUI():void

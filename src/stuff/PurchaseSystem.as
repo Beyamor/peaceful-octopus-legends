@@ -9,6 +9,7 @@ package stuff
 		public static const GUN:String			= "gun";
 		public static const GUN_SPREAD:String	= "spread";
 		public static const HEARTS:String		= "heart";
+		public static const FIRE_RATE:String	= "rate";
 		
 		private var data:PlayerData;
 		
@@ -21,7 +22,17 @@ package stuff
 		{
 			if (what == GUN) return 2;
 			
-			return 1; // TODO - Actual cost for upgrades.
+			switch (what)
+			{
+				case GUN:
+					return 2;
+					
+				case FIRE_RATE:
+					return 0;
+					
+				default:
+					return 1; // TODO - Actual cost for upgrades.
+			}
 		}
 		
 		public function canAfford(what:String):Boolean

@@ -14,10 +14,11 @@ package stuff
 		
 		private var spread:int;
 		
+		private var fireRate:Number = 1;
+		
 		public function Gun()
 		{
-			var magicNumber:Number = 0.2;
-			shotTimer = new Timer(magicNumber);
+			shotTimer = new Timer(fireRate);
 			spread = 1;
 		}
 		
@@ -42,6 +43,11 @@ package stuff
 		public function increaseSpread():void
 		{
 			++spread;
+		}
+		
+		public function increaseFireRate():void
+		{
+			fireRate *= 0.85;
 		}
 	}
 
