@@ -59,6 +59,10 @@ package stuff
 				case HEARTS:
 					data.addHeart();
 					break;
+					
+				case FIRE_RATE:
+					data.gun.increaseFireRate();
+					break;
 			}
 		}
 	}

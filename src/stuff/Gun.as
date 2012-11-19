@@ -47,7 +47,8 @@ package stuff
 		
 		public function increaseFireRate():void
 		{
-			fireRate *= 0.85;
+			fireRate *= 0.66;
+			shotTimer = new Timer(fireRate);
 		}
 	}
 
