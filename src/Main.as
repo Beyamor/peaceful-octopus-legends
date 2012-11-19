@@ -6,6 +6,7 @@ package
 	import net.flashpunk.FP;
 	import worlds.GameWorld;
 	import net.flashpunk.graphics.Text;
+	import worlds.TutorialLevel;
 	
 	/**
 	 * ...
@@ -23,7 +24,7 @@ package
 		public function Main():void 
 		{
 			
-			FP.world = new GameWorld();
+			FP.world = new TutorialLevel();
 			super(GAME_WIDTH, GAME_HEIGHT);
 		}
 	}

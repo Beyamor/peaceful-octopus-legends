@@ -23,12 +23,15 @@ package worlds
 	 */
 	public class GameWorld extends World 
 	{
-		private var player:Player;
-		private var hud:PlayerHud;
-		private var playerData:PlayerData;
+		protected var player:Player;
+		protected var hud:PlayerHud;
+		protected var playerData:PlayerData;
 		
 		public function GameWorld(playerData:PlayerData=null) 
-		{							
+		{						
+			Input.define("killPlayer", 	Key.ENTER);
+			Input.define("inventory", Key.E);
+			
 			if (playerData == null) playerData = new PlayerData();
 			this.playerData = playerData;
 			hud = new PlayerHud(playerData);
@@ -36,20 +39,12 @@ package worlds
 			player = new Player(playerData);
 			add(player);
 			
-			add(new Coin(100, 150));
-			add(new Coin(200, 150));
-			add(new Coin(300, 150));
-			add(new ChaseMonster(200, 50, player));
-			
 			var grid:Grid = Grid.fromPixels(Main.GAME_WIDTH, Main.GAME_HEIGHT, TextEntity.pixelSizeOf(TextEntity.REGULAR));
 			grid.forEach(function(x:int, y:int):void {
 				
 				var realPos:Point = grid.scaledFromGrid(new Point(x, y));
 				add(new Floor(realPos.x, realPos.y));
 			});
-			
-			Input.define("killPlayer", 	Key.ENTER);
-			Input.define("inventory", Key.E);
 		}
 		
 		override public function update():void
@@ -58,10 +53,7 @@ package worlds
 			
 			if (playerData.isDead())
 			{
-				remove(player);
-				playerData.startNewLife();
-				player = new Player(playerData);
-				add(player);
+				onPlayerDeath();
 			}
 			
 			if (Input.pressed("killPlayer")) {
@@ -73,6 +65,11 @@ package worlds
 				
 				InventoryWorld.open(playerData, this);
 			}
+		}
+		
+		protected function onPlayerDeath():void
+		{
+			playerData.startNewLife();
 		}
 	}
 
