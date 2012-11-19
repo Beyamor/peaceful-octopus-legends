@@ -11,10 +11,11 @@ package stuff
 	public class Gun 
 	{
 		private var shotTimer:Timer;
-		
 		private var spread:int;
-		
 		private var fireRate:Number = 1;
+		
+		private const SHOTS_TO_COMPLETE_A_CIRCLE:int = 8;
+		private const SHOT_SPEED:int = 3;
 		
 		public function Gun()
 		{
@@ -27,11 +28,12 @@ package stuff
 			if (!shotTimer.hasFired()) return;
 			shotTimer.reset();
 			
-			var theta:Number = Math.PI / 8;
+			var theta:Number = (spread <= SHOTS_TO_COMPLETE_A_CIRCLE)? Math.PI * 2 / SHOTS_TO_COMPLETE_A_CIRCLE : Math.PI * 2 / spread;
+			
 			var offsetDirection:Number = (((spread as Number) - 1) / 2) * theta;
 			for (var bullet:int = 0; bullet < spread; ++bullet)
 			{
-				world.add(new Bullet(x, y, 3, direction - offsetDirection + bullet * theta));
+				world.add(new Bullet(x, y, SHOT_SPEED, direction - offsetDirection + bullet * theta));
 			}
 		}
 		
