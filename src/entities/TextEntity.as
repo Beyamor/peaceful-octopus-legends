@@ -14,7 +14,8 @@ package entities
 		public static const REGULAR:String		= "regular",
 							SMALL:String		= "small",
 							REALLY_SMALL:String	= "reallySmall";
-			protected var text:Text;
+		
+		protected var text:Text;
 		
 		public function TextEntity(char:String, color:uint = 0xFFFFFF, size:String = null, angleInRadians:Number = 0)
 		{
@@ -33,6 +34,8 @@ package entities
 			text.font = Main.GAME_FONT;
 			text.color = color;
 			text.angle = angleInRadians * FP.DEG;
+			text.x = -(text.size * text.text.length) / 2;
+			text.y = -(text.size / 2);
 			
 			return text;
 		}
