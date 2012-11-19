@@ -3,6 +3,8 @@ package entities
 	import stuff.Colors;
 	import stuff.Depths;
 	import util.Timer;
+	import net.flashpunk.utils.Input;
+	import net.flashpunk.utils.Key;
 	
 	/**
 	 * ...
@@ -14,7 +16,7 @@ package entities
 		private var stillAlive:Boolean;
 		
 		public function Monster(x:Number, y:Number, text:String, color:uint) 
-		{
+		{			
 			super(text, color);
 			
 			this.x = x;

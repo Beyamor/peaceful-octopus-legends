@@ -30,15 +30,17 @@ package entities
 			layer = Depths.PLAYER;
 			super("A", Colors.PLAYER);
 			
-			Input.define("left", 	Key.A);
-			Input.define("right", 	Key.D);
-			Input.define("up", 		Key.W);
-			Input.define("down", 	Key.S);
+			Input.define("left", 		Key.A);
+			Input.define("right", 		Key.D);
+			Input.define("up", 			Key.W);
+			Input.define("down", 		Key.S);
 			
 			Input.define("shootLeft", 	Key.LEFT);
 			Input.define("shootRight", 	Key.RIGHT);
 			Input.define("shootUp", 	Key.UP);
 			Input.define("shootDown", 	Key.DOWN);
+			
+			Input.define("addMoney",	Key.NUMPAD_ADD);
 		}
 		
 		override public function update():void 
@@ -51,6 +53,11 @@ package entities
 			move();
 			
 			shoot();
+			
+			if (Input.check("addMoney"))
+			{
+				data.addCoin();
+			}
 		}
 		
 		private function move():void
