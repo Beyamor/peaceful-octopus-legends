@@ -36,7 +36,6 @@ package entities
 			
 			text.alpha = (1 - lifeTimer.percentElapsed()) * 100;
 			
-			trace(x + ", " + y);
 			x += SPEED * Math.cos(direction);
 			y += SPEED * Math.sin(direction);
 			

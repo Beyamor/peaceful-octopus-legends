@@ -15,6 +15,7 @@ package stuff
 		public static const FLOOR:uint		= 0x403B34;
 		public static const CHASER:uint		= 0x2BA0CF;
 		public static const BLOOD:uint		= 0xC7343E;
+		public static const PORTAL:uint		= 0x4EF583;
 	}
 
 }

@@ -14,6 +14,7 @@ package entities
 	{
 		private var hitTimer:Timer;
 		private var stillAlive:Boolean;
+		protected var coinsToDrop:int = 0;
 		
 		public function Monster(x:Number, y:Number, text:String, color:uint) 
 		{			
@@ -47,8 +48,20 @@ package entities
 			}
 		}
 		
-		private function die():void
+		private function dropCoins():void
 		{
+			for (var coin:int = 0; coin < coinsToDrop; ++coin)
+			{
+				var xOffset:Number = -10 + Math.random() * 20;
+				var yOffset:Number = -10 + Math.random() * 20;
+				world.add(new Coin(x + xOffset, y + yOffset));
+			}
+		}
+		
+		protected function die():void
+		{
+			dropCoins();
+			
 			if (world) world.remove(this);
 		}
 		

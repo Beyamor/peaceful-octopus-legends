@@ -12,6 +12,7 @@ package stuff
 		public static const BULLET:Number	= 5;
 		public static const MONSTER:Number	= 0;
 		public static const FLOOR:Number	= 100;
+		public static const PORTAL:Number	= FLOOR-1;
 		public static const PARTICLE:Number	= 20;
 	}
 

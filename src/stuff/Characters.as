@@ -12,6 +12,7 @@ package stuff
 		public static const CHASER:String		= "M";
 		public static const COIN:String			= "\"";
 		public static const BLOOD_SPURT:String	= "X";
+		public static const PORTAL:String		= "P";
 	}
 
 }

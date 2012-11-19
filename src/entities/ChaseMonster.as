@@ -17,6 +17,8 @@ package entities
 		{
 			this.thingToChase = thingToChase;
 			super(x, y, Characters.CHASER, Colors.CHASER);
+			
+			this.coinsToDrop = Math.floor(1 + Math.random() * 5);
 		}
 		
 		override public function update():void 

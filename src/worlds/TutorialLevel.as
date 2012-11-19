@@ -1,5 +1,6 @@
 package worlds 
 {
+	import entities.TutorialMonster;
 	import stuff.PlayerData;
 	import net.flashpunk.FP;
 	import entities.Coin;
@@ -15,7 +16,7 @@ package worlds
 		{
 			super(playerData);
 			add(new Coin(300, 150));
-			add(new ChaseMonster(200, 50, player));
+			add(new TutorialMonster(200, 50, player, playerData));
 		}
 		
 		override protected function onPlayerDeath():void 
