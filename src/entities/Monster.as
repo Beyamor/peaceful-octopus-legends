@@ -40,6 +40,16 @@ package entities
 			
 				if (player) hitPlayer(player);
 			}
+			
+			if (isDead())
+			{
+				die();
+			}
+		}
+		
+		private function die():void
+		{
+			if (world) world.remove(this);
 		}
 		
 		private function hitPlayer(player:Player):void
@@ -55,10 +65,7 @@ package entities
 		
 		public function takeDamage(damage:Number):void
 		{
-			if (world)
-			{
-				world.remove(this);
-			}
+			stillAlive = false;
 		}
 	}
 
