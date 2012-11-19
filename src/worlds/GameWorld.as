@@ -27,9 +27,10 @@ package worlds
 		private var hud:PlayerHud;
 		private var playerData:PlayerData;
 		
-		public function GameWorld(gameWidth:Number, gameHeight:Number) 
-		{				
-			playerData = new PlayerData();
+		public function GameWorld(playerData:PlayerData=null) 
+		{							
+			if (playerData == null) playerData = new PlayerData();
+			this.playerData = playerData;
 			hud = new PlayerHud(playerData);
 			add(hud);
 			player = new Player(playerData);
@@ -40,7 +41,7 @@ package worlds
 			add(new Coin(300, 150));
 			add(new ChaseMonster(200, 50, player));
 			
-			var grid:Grid = Grid.fromPixels(gameWidth, gameHeight, TextEntity.pixelSizeOf(TextEntity.REGULAR));
+			var grid:Grid = Grid.fromPixels(Main.GAME_WIDTH, Main.GAME_HEIGHT, TextEntity.pixelSizeOf(TextEntity.REGULAR));
 			grid.forEach(function(x:int, y:int):void {
 				
 				var realPos:Point = grid.scaledFromGrid(new Point(x, y));

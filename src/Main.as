@@ -23,7 +23,7 @@ package
 		public function Main():void 
 		{
 			
-			FP.world = new GameWorld(GAME_WIDTH, GAME_HEIGHT);
+			FP.world = new GameWorld();
 			super(GAME_WIDTH, GAME_HEIGHT);
 		}
 	}
