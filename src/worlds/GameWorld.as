@@ -28,8 +28,7 @@ package worlds
 		protected var playerData:PlayerData;
 		
 		public function GameWorld(playerData:PlayerData=null) 
-		{						
-			trace(playerData);
+		{
 			Input.define("killPlayer", 	Key.ENTER);
 			Input.define("inventory", Key.E);
 			

@@ -16,6 +16,7 @@ package entities
 			super(x, y, entityToChase);
 			coinsToDrop = 0;
 			this.playerData = playerData;
+			if (playerData == null) trace("what");
 		}
 		
 		override protected function die():void 

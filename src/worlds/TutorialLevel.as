@@ -16,7 +16,7 @@ package worlds
 		{
 			super(playerData);
 			add(new Coin(300, 150));
-			add(new TutorialMonster(200, 50, player, playerData));
+			add(new TutorialMonster(200, 50, player, this.playerData));
 		}
 		
 		override protected function onPlayerDeath():void 
