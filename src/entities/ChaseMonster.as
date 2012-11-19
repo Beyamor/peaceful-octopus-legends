@@ -3,6 +3,7 @@ package entities
 	import net.flashpunk.Entity;
 	import stuff.Colors;
 	import net.flashpunk.FP;
+	import stuff.Characters;
 	
 	/**
 	 * ...
@@ -15,7 +16,7 @@ package entities
 		public function ChaseMonster(x:Number, y:Number, thingToChase:Entity)
 		{
 			this.thingToChase = thingToChase;
-			super(x, y, "M", Colors.CHASER);
+			super(x, y, Characters.CHASER, Colors.CHASER);
 		}
 		
 		override public function update():void 

@@ -6,6 +6,7 @@ package entities
 	import entities.TextEntity;
 	import stuff.Depths;
 	import stuff.Colors;
+	import stuff.Characters;
 	/**
 	 * ...
 	 * @author beyamor
@@ -16,7 +17,7 @@ package entities
 		
 		public function Bullet(x:Number, y:Number, speed:Number, direction:Number)
 		{
-			super("V", Colors.BULLET, TextEntity.SMALL, direction - Math.PI / 2);
+			super(Characters.BULLET, Colors.BULLET, TextEntity.SMALL, direction - Math.PI / 2);
 			
 			this.x = x;
 			this.y = y;

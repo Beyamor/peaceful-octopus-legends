@@ -15,6 +15,7 @@ package entities
 	import entities.TextEntity;
 	import stuff.Depths;
 	import stuff.Colors;
+	import stuff.Characters;
 	
 	/**
 	 * ...
@@ -28,7 +29,7 @@ package entities
 		{
 			this.data = data;
 			layer = Depths.PLAYER;
-			super("A", Colors.PLAYER);
+			super(Characters.PLAYER, Colors.PLAYER);
 			
 			Input.define("left", 		Key.A);
 			Input.define("right", 		Key.D);

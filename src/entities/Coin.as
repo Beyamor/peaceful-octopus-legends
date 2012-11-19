@@ -4,6 +4,7 @@ package entities
 	import entities.TextEntity;
 	import stuff.Depths;
 	import stuff.Colors;
+	import stuff.Characters;
 	
 	/**
 	 * ...
@@ -14,7 +15,7 @@ package entities
 		
 		public function Coin(x:Number, y:Number)
 		{
-			super("\"", Colors.COIN, TextEntity.SMALL);
+			super(Characters.COIN, Colors.COIN, TextEntity.SMALL);
 			this.x = x;
 			this.y = y;
 			type = "coin";

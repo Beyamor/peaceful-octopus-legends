@@ -2,6 +2,7 @@ package entities
 {
 	import stuff.Colors;
 	import stuff.Depths;
+	import stuff.Characters;
 	
 	/**
 	 * ...
@@ -12,7 +13,7 @@ package entities
 		
 		public function Floor(x:Number, y:Number) 
 		{
-			super("0", Colors.FLOOR);
+			super(Characters.FLOOR, Colors.FLOOR);
 			layer = Depths.FLOOR;
 			
 			this.x = x;
