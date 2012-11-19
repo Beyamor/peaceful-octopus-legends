@@ -39,7 +39,7 @@ package worlds
 			player = new Player(playerData);
 			add(player);
 			
-			var grid:Grid = Grid.fromPixels(Main.GAME_WIDTH, Main.GAME_HEIGHT, TextEntity.pixelSizeOf(TextEntity.REGULAR));
+			var grid:Grid = Grid.fromPixels(Main.GAME_WIDTH + 100, Main.GAME_HEIGHT + 100, TextEntity.pixelSizeOf(TextEntity.REGULAR));
 			grid.forEach(function(x:int, y:int):void {
 				
 				var realPos:Point = grid.scaledFromGrid(new Point(x, y));
