@@ -13,6 +13,7 @@ package worlds
 		
 		public function TutorialLevel(playerData:PlayerData=null)
 		{
+			super(playerData);
 			add(new Coin(300, 150));
 			add(new ChaseMonster(200, 50, player));
 		}
