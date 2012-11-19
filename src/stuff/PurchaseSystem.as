@@ -43,11 +43,6 @@ package stuff
 					break;
 			}
 		}
-		
-		public function purchaseFunction(what:String):Function
-		{
-			return function():void { purchase(what); };
-		}
 	}
 
 }

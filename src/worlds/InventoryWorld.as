@@ -29,7 +29,8 @@ package worlds
 		
 		private const SKIN:PunkSkin			= new YoloSkin();
 		
-		private var closing:Boolean = false;
+		private var closing:Boolean = false,
+					dirty:Boolean	= false;
 		
 		public static function open(player:PlayerData, previousWorld:GameWorld):void
 		{
@@ -41,7 +42,15 @@ package worlds
 			this.player = player;
 			this.previousWorld = previousWorld;
 			this.purchaseSystem = new PurchaseSystem(player);
-				
+			
+			refresh();
+		}
+		
+		// fuck it
+		private function refresh():void
+		{
+			removeAll();
+			
 			if (player.hasGun())
 			{
 				addUpgradeUI();
@@ -53,7 +62,6 @@ package worlds
 			}
 			
 			addCloseButton();
-			
 			add(new PlayerHud(player));
 		}
 		
@@ -75,7 +83,7 @@ package worlds
 				BUTTON_WIDTH,
 				BUTTON_HEIGHT,
 				text,
-				purchaseSystem.purchaseFunction(what),
+				purchaseFunction(what),
 				0,
 				SKIN);
 				
@@ -97,6 +105,12 @@ package worlds
 				removeAll();
 				FP.world = previousWorld;
 			}
+			
+			if (dirty)
+			{
+				refresh();
+				dirty = false;
+			}
 		}
 		
 		private function addCloseButton():void
@@ -115,6 +129,15 @@ package worlds
 		private function close():void
 		{
 			closing = true;
+		}
+		
+		private function purchaseFunction(what:String):Function
+		{
+			return function():void
+			{
+				purchaseSystem.purchase(what);
+				dirty = true;
+			}
 		}
 	}
 
