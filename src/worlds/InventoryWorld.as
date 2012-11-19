@@ -67,7 +67,8 @@ package worlds
 		
 		private function addUpgradeUI():void
 		{
-			addPurchaseButton(MARGIN, MARGIN, "Spread", PurchaseSystem.GUN_SPREAD);
+			addPurchaseButton(MARGIN, MARGIN, "Hearts", PurchaseSystem.HEARTS);
+			addPurchaseButton(MARGIN, MARGIN*3, "Spread", PurchaseSystem.GUN_SPREAD);
 		}
 		
 		private function addNewInventoryUI():void
