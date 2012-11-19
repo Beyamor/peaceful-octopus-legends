@@ -8,6 +8,7 @@ package stuff
 	{
 		public static const GUN:String			= "gun";
 		public static const GUN_SPREAD:String	= "spread";
+		public static const HEARTS:String		= "heart";
 		
 		private var data:PlayerData;
 		
@@ -18,6 +19,8 @@ package stuff
 		
 		public function cost(what:String):int
 		{
+			if (what == GUN) return 2;
+			
 			return 1; // TODO - Actual cost for upgrades.
 		}
 		
@@ -40,6 +43,10 @@ package stuff
 					
 				case GUN_SPREAD:
 					data.gun.increaseSpread();
+					break;
+					
+				case HEARTS:
+					data.addHeart();
 					break;
 			}
 		}

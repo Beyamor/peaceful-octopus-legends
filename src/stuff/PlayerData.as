@@ -15,7 +15,7 @@ package stuff
 		{
 			this.gun = new NullGun();
 			coins = 0;
-			totalHearts = 10;
+			totalHearts = 1;
 			startNewLife();
 		}
 		
@@ -62,6 +62,12 @@ package stuff
 		public function hasGun():Boolean
 		{
 			return !(gun is NullGun);
+		}
+		
+		public function addHeart():void
+		{
+			++hearts;
+			++totalHearts;
 		}
 	}
 
