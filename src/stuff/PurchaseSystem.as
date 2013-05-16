@@ -28,7 +28,7 @@ package stuff
 					return 2;
 					
 				case FIRE_RATE:
-					return 0;
+					return 1;
 					
 				default:
 					return 1; // TODO - Actual cost for upgrades.
